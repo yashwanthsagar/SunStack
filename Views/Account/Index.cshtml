@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Index
+</h2>
+
+<head>
+    <title>Epilogue by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="../css/main.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <div class="inner">
+            <h3><span>Welcome @Html.Encode(User.Identity.Name) </span></h3>
+            <h1>SunStack</h1>
+            <p>Get Solution to Your Questions !!!</p>
+        </div>
+    </header>
+    <br />
+
+    @if (Request.IsAuthenticated)
+    {
+        <section class="main items">
+            <article class="item">
+                <header>
+                    <h2>@Html.ActionLink("ASK", "Question", "Account")</h2>
+                </header>
+            </article>
+            <article class="item">
+                <header>
+                    <h2>@Html.ActionLink("ANSWER", "QuestionList", "Account")</h2>
+                </header>
+            </article>
+            </section>
+            }
+            else
+            {
+
+            @Html.ActionLink("Login", "Login", "Account")
+            <br />
+
+            @Html.ActionLink("Register", "Register", "Account")
+            }
+    </body>

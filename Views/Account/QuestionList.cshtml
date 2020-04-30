@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SunStack.Models.Question>
+@{
+    ViewBag.Title = "QuestionList";
+}
+
+<h2>QuestionList</h2>
+@using (Html.BeginForm("QuestionList", "Account"))
+{
+    <table class="table">
+       
+
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question1)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Answer", "Answer", "Account")
+                </td>
+            </tr>
+        }
+    </table>
+}
